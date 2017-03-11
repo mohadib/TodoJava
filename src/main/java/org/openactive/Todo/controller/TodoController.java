@@ -4,6 +4,8 @@ import org.openactive.Todo.dao.TodoDao;
 import org.openactive.Todo.domain.Todo;
 import org.openactive.Todo.domain.User;
 import org.openactive.Todo.misc.PageableResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -17,8 +19,20 @@ import java.util.List;
 @RequestMapping("/todos")
 public class TodoController
 {
+   private final Logger LOG = LoggerFactory.getLogger( getClass() );
+
    @Autowired
    private TodoDao todoDao;
+
+
+   @DeleteMapping("/{id}")
+   public ResponseEntity delete( User user, @PathVariable("id") Integer id )
+   {
+      Integer deletedId = todoDao.deleteByUserAndId( user, id );
+      LOG.info( "Deleted " + deletedId );
+
+      return ResponseEntity.ok().build();
+   }
 
    @PostMapping
    public ResponseEntity<Todo> post( User user, @RequestBody Todo todo )
