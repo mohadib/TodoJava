@@ -8,103 +8,103 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table( name = "todo" )
-@EntityListeners( {CreateUpdateListener.class} )
+@Table(name = "todo")
+@EntityListeners({CreateUpdateListener.class})
 public class Todo implements CreatableAndUpdateable
 {
-  @Id
-  @GeneratedValue( strategy = GenerationType.IDENTITY )
-  @Column( nullable = false, unique = true )
-  private Integer id;
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(nullable = false, unique = true)
+   private Integer id;
 
-  @Temporal( TemporalType.TIMESTAMP )
-  @Column( name = "created", nullable = false )
-  private Date created;
+   @Temporal(TemporalType.TIMESTAMP)
+   @Column(name = "created", nullable = false)
+   private Date created;
 
-  @Temporal( TemporalType.TIMESTAMP )
-  @Column( name = "lastUpdated" )
-  private Date lastUpdated;
+   @Temporal(TemporalType.TIMESTAMP)
+   @Column(name = "lastUpdated")
+   private Date lastUpdated;
 
-  @ManyToOne
-  private User user;
+   @ManyToOne
+   private User user;
 
-  @Basic(optional = false)
-  private String title;
+   @Basic(optional = false)
+   private String title;
 
-  @Column( name="description", length = 5000)
-  private String description;
+   @Column(name = "description", length = 5000)
+   private String description;
 
-  @Basic
-  private boolean done;
+   @Basic
+   private boolean done;
 
-  public Integer getId()
-  {
-    return id;
-  }
+   public Integer getId()
+   {
+      return id;
+   }
 
-  public void setId( Integer id )
-  {
-    this.id = id;
-  }
+   public void setId( Integer id )
+   {
+      this.id = id;
+   }
 
-  public Date getCreated()
-  {
-    return created;
-  }
+   public Date getCreated()
+   {
+      return created;
+   }
 
-  public void setCreated( Date created )
-  {
-    this.created = created;
-  }
+   public void setCreated( Date created )
+   {
+      this.created = created;
+   }
 
-  public Date getLastUpdated()
-  {
-    return lastUpdated;
-  }
+   public Date getLastUpdated()
+   {
+      return lastUpdated;
+   }
 
-  public void setLastUpdated( Date lastUpdated )
-  {
-    this.lastUpdated = lastUpdated;
-  }
+   public void setLastUpdated( Date lastUpdated )
+   {
+      this.lastUpdated = lastUpdated;
+   }
 
-  @JsonIgnore
-  public User getUser()
-  {
-    return user;
-  }
+   @JsonIgnore
+   public User getUser()
+   {
+      return user;
+   }
 
-  public void setUser( User user )
-  {
-    this.user = user;
-  }
+   public void setUser( User user )
+   {
+      this.user = user;
+   }
 
-  public String getTitle()
-  {
-    return title;
-  }
+   public String getTitle()
+   {
+      return title;
+   }
 
-  public void setTitle( String title )
-  {
-    this.title = title;
-  }
+   public void setTitle( String title )
+   {
+      this.title = title;
+   }
 
-  public String getDescription()
-  {
-    return description;
-  }
+   public String getDescription()
+   {
+      return description;
+   }
 
-  public void setDescription( String description )
-  {
-    this.description = description;
-  }
+   public void setDescription( String description )
+   {
+      this.description = description;
+   }
 
-  public boolean isDone()
-  {
-    return done;
-  }
+   public boolean isDone()
+   {
+      return done;
+   }
 
-  public void setDone( boolean done )
-  {
-    this.done = done;
-  }
+   public void setDone( boolean done )
+   {
+      this.done = done;
+   }
 }

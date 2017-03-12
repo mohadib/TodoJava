@@ -51,8 +51,8 @@ public class AppBootstrap extends LoadData
       for ( int i = 0; i < 2; i++ )
       {
          Todo todo = new Todo();
-         todo.setTitle( i + "Create React Todo App " );
-         todo.setDescription( i + "Create Spring Rest app with React and Redux" );
+         todo.setTitle( i + "Fix search with sort" );
+         todo.setDescription( i + "Fix 'done'" );
          todo.setUser( jason );
          todoDao.save( todo );
       }

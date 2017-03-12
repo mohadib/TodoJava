@@ -23,7 +23,7 @@
    configuring the plain old JDBC DriverManager via bean properties -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${jpa.driver}" />
-        <property name="url" value="${jpa.url}" />
+        <property name="url" value="${jpa.url}?useSSL=false" />
         <property name="username" value="${jpa.username}" />
         <property name="password" value="${jpa.password}" />
     </bean>

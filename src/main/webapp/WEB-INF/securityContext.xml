@@ -29,6 +29,7 @@
         <csrf disabled="true"/>
         <!-- <http-basic/>
         <form-login/> -->
+        <logout invalidate-session="true" logout-url="/logout" logout-success-url="/" delete-cookies="JSESSIONID"/>
         <intercept-url pattern="/api/login" access="permitAll()"/>
         <intercept-url pattern="/api/errors/**" access="permitAll()"/>
         <intercept-url pattern="/api/**" access="hasRole('ROLE_USER')"/>
